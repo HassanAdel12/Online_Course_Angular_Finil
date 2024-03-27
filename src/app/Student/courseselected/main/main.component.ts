@@ -1,15 +1,11 @@
-<<<<<<< HEAD
-import { Component, Input, input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-=======
-import { Component, Input } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
 
-import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
->>>>>>> eb2f1d6c64c92adf45258da95a56dc16adfe388e
-import { CourseibrahemService } from '../../../../Service/courseibrahem.service';
+
+import { Component, Input } from "@angular/core";
+import { CourseibrahemService } from "../../../../Service/courseibrahem.service";
+import { HttpClientModule } from "@angular/common/http";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { ActivatedRoute, RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-main',

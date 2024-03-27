@@ -3,7 +3,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CourseibrahemService } from '../../../../Service/courseibrahem.service';
+import { CourseibrahemService } from '../../../../../Service/courseibrahem.service';
+//import { CourseibrahemService } from '../../../../Service/courseibrahem.service';
 
 
 @Component({

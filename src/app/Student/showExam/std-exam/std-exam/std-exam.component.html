@@ -1,4 +1,4 @@
-<div id="e" class="">
+<!-- <div id="e" class="">
     <form [formGroup]="myForm" (ngSubmit)="Submit()">
         <div id="e2" class="container m-auto ">
 
@@ -18,8 +18,35 @@
 
 
 
+<<<<<<< HEAD
             <div id="body" class="m-auto">
                 @for (Question of Questions; track Question.question_ID) {
+=======
+<div id="body"  class="m-auto">
+   @for (i of oneExam.questions; track i.id) {
+ 
+    
+<h3>{{i.name}} </h3>
+
+<div >
+   
+    <ul class="mt-4 " type="A">
+        @for (u of i.choise; track u.id) {
+        <li class="mt-2">
+           
+            <label for="q" > {{u.text}} <input class="ms-2" name="{{i.id}}" id="q"   type="radio"> </label> 
+    
+        </li>
+     } 
+    </ul>
+
+  
+</div>
+
+}
+</div>
+ 
+>>>>>>> eb2f1d6c64c92adf45258da95a56dc16adfe388e
 
 
                 <h3>{{Question.question_Text}} </h3>
@@ -55,4 +82,4 @@
 
     </form>
 
-</div>
+</div> -->

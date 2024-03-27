@@ -1,8 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { StdExamComponent } from '../std-exam.component';
+//import { StdExamComponent } from '../std-exam.component';
 import { StdExamEnrollComponent } from '../std-exam-enroll/std-exam-enroll.component';
 import { QuizService } from '../../../../../Service/quiz.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { StdExamComponent } from '../std-exam/std-exam.component';
 
 @Component({
   selector: 'app-exam-page',
