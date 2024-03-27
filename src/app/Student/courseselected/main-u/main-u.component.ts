@@ -1,14 +1,8 @@
 import { Component, Input, signal } from '@angular/core';
-<<<<<<< HEAD
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { GroupService } from '../../../../Service/group.service';
 import { SessionService } from '../../../../Service/session.service';
-=======
-import { ActivatedRoute, RouterLink } from '@angular/router';
-
 import { HttpClientModule } from '@angular/common/http';
-import { CourseibrahemService } from '../../../../Service/courseibrahem.service';
->>>>>>> eb2f1d6c64c92adf45258da95a56dc16adfe388e
 
 @Component({
   selector: 'app-main-u',
@@ -16,11 +10,7 @@ import { CourseibrahemService } from '../../../../Service/courseibrahem.service'
   imports: [
     RouterLink,HttpClientModule
   ],
-<<<<<<< HEAD
   providers:[GroupService,SessionService],
-=======
-  providers:[CourseibrahemService],
->>>>>>> eb2f1d6c64c92adf45258da95a56dc16adfe388e
   templateUrl: './main-u.component.html',
   styleUrl: './main-u.component.css'
 })

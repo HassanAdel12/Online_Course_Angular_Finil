@@ -19,7 +19,7 @@ export class GroupService {
   }
 
   getGroupByCourseID(id:any){
-    return this.myClient.get(this.DB_URL+"/Course/"+id);
+    return this.myClient.get("http://localhost:48190/api/AllGroups/Course/"+id);
   }
 
   AddNewGroup(Group:any){
