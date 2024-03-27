@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CourseibrahemService } from '../../../../Service/courseibrahem.service';
 
@@ -12,6 +12,7 @@ import { CourseibrahemService } from '../../../../Service/courseibrahem.service'
   styleUrl: './main.component.css'
 })
 export class MainComponent {
+  @Input() Groupid: any;
   id=0;
   course:any
 constructor(myActivat:ActivatedRoute, private myservic:CourseibrahemService){

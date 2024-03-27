@@ -16,15 +16,13 @@ import { StdExamEnrollComponent } from './Student/showExam/std-exam/std-exam-enr
 import { DashBoardGradeOneComponent } from './Instructor/creategroup/dash-board-grade-one/dash-board-grade-one.component';
 import { DashBoardGradeTwoComponent } from './Instructor/creategroup/dash-board-grade-two/dash-board-grade-two.component';
 import { DashBoardGradeThreeComponent } from './Instructor/creategroup/dash-board-grade-three/dash-board-grade-three.component';
-import { Grade1Component } from './Student/grades/grade1/grade1.component';
-import { Grade2Component } from './Student/grades/grade2/grade2.component';
-import { Grade3Component } from './Student/grades/grade3/grade3.component';
+
 import { AddGroupComponent } from './Instructor/creategroup/add-group/add-group.component';
 
 import { StepsCreateComponent } from './Instructor/Profile/steps-create/steps-create.component';
 import { choosegradeComponent } from './Student/grades/choocegrade/chooseinstructor.component';
 import { AllCoursesComponent } from './Instructor/creategroup/all-courses/all-courses.component';
-import { ChooseinstructorComponent } from './Student/chooseinstructor/chooseinstructor.component';
+import { ChooseinstructorComponent } from './Student/grades/chooseinstructor/chooseinstructor.component';
 
 
 
@@ -32,16 +30,19 @@ import { ChooseinstructorComponent } from './Student/chooseinstructor/chooseinst
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,
-    HeaderComponent,
-    FooterComponent,
-    ProfileComponent
-    ,InstgroupsComponent,
-    CreateexamComponent,InstructorComponent,
-    CourseselectedComponent,MainComponent,MainUComponent,ExamPageComponent,
-    StdExamComponent,SendComponent,StdExamEnrollComponent,DashBoardGradeOneComponent,DashBoardGradeTwoComponent,
-    DashBoardGradeThreeComponent,Grade1Component,Grade2Component,Grade3Component,AddGroupComponent
-    ,StepsCreateComponent,choosegradeComponent,AllCoursesComponent,ChooseinstructorComponent
+  // imports: [RouterOutlet,
+  //   HeaderComponent,
+  //   FooterComponent,
+  //   ProfileComponent
+  //   ,InstgroupsComponent,
+  //   CreateexamComponent,InstructorComponent,
+  //   CourseselectedComponent,MainComponent,MainUComponent,ExamPageComponent,
+  //   StdExamComponent,SendComponent,StdExamEnrollComponent,DashBoardGradeOneComponent,DashBoardGradeTwoComponent,
+  //   DashBoardGradeThreeComponent,Grade1Component,Grade2Component,Grade3Component,AddGroupComponent
+  //   ,StepsCreateComponent,choosegradeComponent,AllCoursesComponent,ChooseinstructorComponent
+  // ],
+  imports: [
+    HeaderComponent,FooterComponent,RouterOutlet
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

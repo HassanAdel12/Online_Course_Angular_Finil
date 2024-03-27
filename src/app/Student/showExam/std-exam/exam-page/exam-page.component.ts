@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { StdExamComponent } from '../std-exam.component';
 import { StdExamEnrollComponent } from '../std-exam-enroll/std-exam-enroll.component';
+import { QuizService } from '../../../../../Service/quiz.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-exam-page',
@@ -9,9 +11,16 @@ import { StdExamEnrollComponent } from '../std-exam-enroll/std-exam-enroll.compo
     StdExamComponent,
     StdExamEnrollComponent
   ],
+  providers:[QuizService],
   templateUrl: './exam-page.component.html',
   styleUrl: './exam-page.component.css'
 })
 export class ExamPageComponent {
+
+  Groupid : any;
+
+  constructor(private router: Router , private Actived : ActivatedRoute){ 
+   this.Groupid = this.Actived.snapshot.params["id"];
+ }
 
 }

@@ -18,6 +18,10 @@ export class GroupService {
     return this.myClient.get(this.DB_URL+"/"+id);
   }
 
+  getGroupByCourseID(id:any){
+    return this.myClient.get(this.DB_URL+"/Course/"+id);
+  }
+
   AddNewGroup(Group:any){
     return this.myClient.post(this.DB_URL,Group);
   }

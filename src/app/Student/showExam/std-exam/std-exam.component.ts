@@ -3,83 +3,103 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router, RouterModule } from '@angular/router';
 
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { CourseibrahemService } from '../../../../Service/courseibrahem.service';
-
+import { CourseService } from '../../../../Service/course.service';
+import { QuizService } from '../../../../Service/quiz.service';
+import { QuestionService } from '../../../../Service/question.service';
 
 @Component({
   selector: 'app-std-exam',
   standalone: true,
-  imports: [
-HttpClientModule,
-CommonModule,
-FormsModule,
-ReactiveFormsModule
-
-  ],
-  providers:[
-    CourseibrahemService
-  ],
+  imports: [HttpClientModule, CommonModule, FormsModule, ReactiveFormsModule],
+  providers: [QuizService,QuestionService],
   templateUrl: './std-exam.component.html',
-  styleUrl: './std-exam.component.css'
+  styleUrl: './std-exam.component.css',
 })
 export class StdExamComponent implements OnInit {
-  myForm=new FormGroup({
-    answer:new FormControl(null,[Validators.required])
-  })
-  ID=0;
-  examid:any
-  student:any[]=[];
-  std:any
-  username="";
- 
-
-constructor(active:ActivatedRoute, private myservice:CourseibrahemService,private router:Router)
-{
   
-this.ID=active.snapshot.params["id"]
-}
-ngOnInit():void
-{
+  getAnswer(event: any) {
+    let value = event.value;
 
-  this.myservice.getstudent_quiz().subscribe({
-    next:(data:any)=>this.student=data,
-    error:(err)=>console.log(err)
-  })
+    console.log(event);
+  }
 
-  this.myservice.getExambyid(this.ID).subscribe({
-    next:(data)=>this.examid=data,
-    error:(err)=>console.log(err)
-  })
+  myForm = new FormGroup({
+    answer: new FormControl(null, [Validators.required]),
+  });
 
+  // ID = 0;
+  // selectedAnswers: any;
+  // student: any[] = [];
+  // std: any;
+  username = '';
+  // oneExam: any;
 
+  //questionIndex: any;
 
-}
+  quiz_ID : any;
+  Questions : any;
+  quiz:any;
 
-Submit() {
- const data={
-  StdAnswer:this.myForm.value.answer,
-  Stdname:this.username,
-  Stdid:this.std.id,
-  //question id?
+  constructor(
+    private QuizService: QuizService , private QuestionService: QuestionService,
+    private router: Router,
+    Active: ActivatedRoute
+  ) {
+    this.quiz_ID = Active.snapshot.params['id'];
+  }
 
- };
- this.myservice.addstudentanswer(data).subscribe({
-  next:(data)=>{
-   
-    window.location.reload();
-  },
-  error:(err)=>{window.alert("sorry there is an error when add: ")}
- })
+  ngOnInit(): void {
+
+    this.QuizService.getQuizByID(this.quiz_ID).subscribe({
+      next:(data)=>{
+        this.quiz = data;
+      },
+      error:(err)=>{
+        this.router.navigate(['/Error',{errormessage : err.message as string}]);
+      }
+    })
   
-  this.router.navigate(['/send']);
-  this.std = this.student.find(s=>s.username===this.username);
+    this.QuestionService.getQuestionByQuizID(this.quiz_ID).subscribe({
+      next:(data)=>{
+        this.Questions = data;
+      },
+      error:(err)=>{
+        this.router.navigate(['/Error',{errormessage : err.message as string}]);
+      }
+    })
 
+    
+   }
 
+  Submit() {
+    // const data = {
+    //   StdAnswer: this.myForm.value.answer,
+    //   Stdname: this.username,
+    //   Stdid: this.std.id,
+    //   //question id?
+    // };
+    // this.myservice.addstudentanswer(data).subscribe({
+    //   next: (data) => {
+    //     window.location.reload();
+    //   },
+    //   error: (err) => {
+    //     window.alert('sorry there is an error when add: ');
+    //   },
+    // });
 
-}
-checkanswers()
-{
-  return this.myForm.controls["answer"].valid
-}
+    // this.router.navigate(['/send']);
+    // this.std = this.student.find((s) => s.username === this.username);
+  }
+  checkanswers() {
+    return this.myForm.controls['answer'].valid;
+  }
 }

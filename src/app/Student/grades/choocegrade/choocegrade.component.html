@@ -1,3 +1,6 @@
-<button class="router-link" routerLinkActive="active" routerLink="/grade1">Grade1</button>
-<button class="router-link" routerLinkActive="active" routerLink="/grade2">Grade2</button>
-<button class="router-link" routerLinkActive="active" routerLink="/grade3">Grade2</button>
+@for (Grade of Grades; track $index) {
+    <button class="router-link me-1" 
+    routerLinkActive="active" 
+    routerLink="/grade/{{Grade.grade_ID}}
+    ">{{Grade.grade_Name}}</button>
+}
