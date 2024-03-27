@@ -1,12 +1,21 @@
-import { HttpClientModule } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
-//import { CourseibrahemService } from '../../../../../Service/courseibrahem.service';
-import { QuizService } from '../../../../../Service/quiz.service';
-import { GroupService } from '../../../../../Service/group.service';
+// import { HttpClientModule } from '@angular/common/http';
+// import { Component, Input } from '@angular/core';
+// import { Router, RouterLink } from '@angular/router';
+// //import { CourseibrahemService } from '../../../../../Service/courseibrahem.service';
+// import { QuizService } from '../../../../../Service/quiz.service';
+// import { GroupService } from '../../../../../Service/group.service';
 
-import { CommonModule } from '@angular/common';
-//import { CourseibrahemService } from '../../../../../Service/courseibrahem.service';
+import { CommonModule } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
+import { Component, Input } from "@angular/core";
+import { Router, RouterLink } from "@angular/router";
+import { GroupService } from "../../../../../Service/group.service";
+import { QuizService } from "../../../../../Service/quiz.service";
+//import { QuizService } from "../../../../Service/quiz.service";
+//import { GroupService } from "../../../../Service/group.service";
+
+// import { CommonModule } from '@angular/common';
+// import { CourseibrahemService } from '../../../../../Service/courseibrahem.service';
 
 @Component({
   selector: 'app-std-exam-enroll',
@@ -22,7 +31,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './std-exam-enroll.component.css'
 })
 export class StdExamEnrollComponent {
-
+  exam:any;
   Group : any;
   @Input() Groupid: any;
   quizs :any;

@@ -11,21 +11,24 @@ import {
   Validators,
 } from '@angular/forms';
 import { CourseibrahemService } from '../../../../../Service/courseibrahem.service';
-import { QuizService } from '../../../../../Service/quiz.service';
 import { QuestionService } from '../../../../../Service/question.service';
-import { StudentQuizService } from '../../../../../Service/student-quiz.service';
+import { QuizService } from '../../../../../Service/quiz.service';
 import { StudentService } from '../../../../../Service/student.service';
+import { StudentQuizService } from '../../../../../Service/student-quiz.service';
 //import { CourseibrahemService } from '../../../../Service/courseibrahem.service';
+//import { CourseService } from '../../../../Service/course.service';
 
 @Component({
   selector: 'app-std-exam',
   standalone: true,
   imports: [HttpClientModule, CommonModule, FormsModule, ReactiveFormsModule],
-  providers: [QuizService, QuestionService, StudentQuizService, StudentService],
+  providers: [QuestionService, QuizService,StudentQuizService,StudentService],
   templateUrl: './std-exam.component.html',
   styleUrl: './std-exam.component.css',
 })
 export class StdExamComponent implements OnInit {
+
+  
   studentid: any;
   student: any;
   quiz: any;

@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './grade.component.css'
 })
 export class GradeComponent {
-
+  
   id:any;
   courses:any;
   grade :any;
@@ -56,7 +56,7 @@ export class GradeComponent {
       }
     })
 
-
+    
   }
 
 }

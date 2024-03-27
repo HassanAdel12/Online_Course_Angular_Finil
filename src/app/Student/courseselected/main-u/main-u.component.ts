@@ -38,14 +38,14 @@ export class MainUComponent {
     }
   })
 
-  // this.SessionService.getSessionByGroupID(this.Groupid).subscribe({
-  //   next:(data)=>{
-  //     this.Sessions = data;
-  //   },
-  //   error:(err)=>{
-  //     this.router.navigate(['/Error',{errormessage : err.message as string}]);
-  //   }
-  // })
+  this.SessionService.getSessionByGroupID(this.Groupid).subscribe({
+    next:(data)=>{
+      this.Sessions = data;
+    },
+    error:(err)=>{
+      this.router.navigate(['/Error',{errormessage : err.message as string}]);
+    }
+  })
  }
 
 }

@@ -42,7 +42,7 @@ export class ChooseinstructorComponent {
    this.id = this.Actived.snapshot.params["id"];
  }
 
-
+  
 
  ngOnInit(): void {
 
@@ -64,7 +64,7 @@ export class ChooseinstructorComponent {
     }
   })
  }
-
+  
 
 
 }

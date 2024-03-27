@@ -7,7 +7,6 @@ import { GradeService } from '../../../../Service/grade.service';
   standalone: true,
   imports: [ RouterLink,
     RouterModule],
-    providers: [GradeService],
   templateUrl: './choocegrade.component.html',
   styleUrl: './choocegrade.component.css'
 })
@@ -29,5 +28,5 @@ export class choosegradeComponent {
     })
 
   }
-
+  
 }

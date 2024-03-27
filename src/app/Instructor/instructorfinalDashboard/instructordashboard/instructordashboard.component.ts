@@ -12,6 +12,10 @@ export class InstructordashboardComponent {
   constructor(private router: Router) {
     
   }
+  createexam(){
+   
+    window.location.href = '/ExamComponent';
+  }
 
 
 }

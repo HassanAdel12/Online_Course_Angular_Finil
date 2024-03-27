@@ -19,7 +19,7 @@ export class SessionService {
   }
 
   getSessionByGroupID(id:any){
-    return this.myClient.get(this.DB_URL+"/Group/"+id);
+    return this.myClient.get("http://localhost:48190/api/AllSessionByGroup/ByGroup/"+id);
   }
 
   AddNewSession(Session:any){

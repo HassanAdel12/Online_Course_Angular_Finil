@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -22,12 +21,15 @@ import { MainUComponent } from '../main-u/main-u.component';
   ],
   providers: [GroupService],
   templateUrl: './courseselected.component.html',
-  styleUrl: './courseselected.component.css'
+  styleUrl: './courseselected.component.css',
 })
 export class CourseselectedComponent {
+  
   id: any;
+  
   constructor(
     private router: Router , private Actived : ActivatedRoute){ 
    this.id = this.Actived.snapshot.params["id"];
  }
+
 }

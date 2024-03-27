@@ -40,12 +40,11 @@ header {
     border: 1px solid lightblue; /* Border for the container */
     height: 600px;
     max-width: 100%; 
-  
+    margin-top:10px;
   }
   
   
   .sidebar {
-    
     width: 250px;
     background-color: lightblue;
     padding: 20px;
@@ -79,9 +78,4 @@ header {
     flex-grow: 1;
     padding: 20px;
     border-left: 1px solid lightblue; /* Left border for the content area */
-  }
-  h1{
-    text-align: center;
-    margin-left: 450px;
- 
   }
