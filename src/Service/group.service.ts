@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class GroupService {
 
-  private readonly DB_URL = "http://localhost:48190/api/Group";
+  private readonly DB_URL = "http://localhost:3000/groups";
 
   constructor(private readonly myClient:HttpClient) { }
 
@@ -16,10 +16,6 @@ export class GroupService {
 
   getGroupByID(id:any){
     return this.myClient.get(this.DB_URL+"/"+id);
-  }
-
-  getGroupByCourseID(id:any){
-    return this.myClient.get(this.DB_URL+"/Course/"+id);
   }
 
   AddNewGroup(Group:any){

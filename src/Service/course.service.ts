@@ -18,11 +18,6 @@ export class CourseService {
     return this.myClient.get(this.DB_URL+"/"+id);
   }
 
-  getCourseByGradeID(id:any){
-    return this.myClient.get(this.DB_URL+"/Grade/"+id);
-  }
-
-
   AddNewCourse(Course:any){
     return this.myClient.post(this.DB_URL,Course);
   }

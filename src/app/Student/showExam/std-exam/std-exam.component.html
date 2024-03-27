@@ -1,58 +1,71 @@
-<div id="e" class="">
-    <form [formGroup]="myForm" (ngSubmit)="Submit()">
-        <div id="e2" class="container m-auto ">
 
-            <h3 style="text-align: center;">User Name</h3>
+    
+ <div id="e" class="" >
+ <form [formGroup]="myForm" (ngSubmit)="Submit()">
+<div id="e2" class="container m-auto ">
+  
+    <h3  style="text-align: center;">User Name</h3>
 
-            <div id="e3" class="m-auto">
+<div id="e3" class="m-auto">
 
                 <input type="text" [(ngModel)]="username" class="form-control" placeholder="Enter Your Name">
 
-            </div>
+</div>
 
             <div id="header" class="m-auto">
                 <h2>{{quiz.quiz_Name}}</h2>
 
-            </div>
+</div>
 
 
 
 
+<<<<<<< HEAD
             <div id="body" class="m-auto">
                 @for (Question of Questions; track Question.question_ID) {
+=======
+<div id="body"  class="m-auto">
+   @for (i of oneExam.questions; track i.id) {
+ 
+    
+<h3>{{i.name}} </h3>
+
+<div >
+   
+    <ul class="mt-4 " type="A">
+        @for (u of i.choise; track u.id) {
+        <li class="mt-2">
+           
+            <label for="q" > {{u.text}} <input class="ms-2" name="{{i.id}}" id="q"   type="radio"> </label> 
+    
+        </li>
+     } 
+    </ul>
+
+  
+</div>
+
+}
+</div>
+ 
+>>>>>>> 433caf534c6cf6d4dad77573261e7e0b87e4b033
 
 
-                <h3>{{Question.question_Text}} </h3>
 
-                <div>
+<div id="button" >
+    <input type="submit" class="btn btn-primary " >
+</div>
 
-                    <ul class="mt-4 " type="A">
-                        @for (Choise of Question.Choises; track Choise.choise_ID) {
-                        <li class="mt-2">
-
-                            <label for="q"> {{Choise.text}} <input class="ms-2" name="{{Question.question_ID}}" id="q"
-                                    (change)="getAnswer($event)" value="{{Choise.isCorrect}}" type="radio"> </label>
-
-                        </li>
-                        }
-                    </ul>
-
-
-                </div>
-
-                }
-            </div>
-
-
-
-
-            <div id="button">
-                <input type="submit" class="btn btn-primary ">
-            </div>
-
-
-        </div>
-
-    </form>
 
 </div>
+
+</form>
+
+</div>
+
+
+
+
+    
+                                                                                                           
+    

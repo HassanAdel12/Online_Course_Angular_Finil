@@ -4,8 +4,8 @@ import { ActivatedRoute, Route, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CourseibrahemService } from '../../../../../Service/courseibrahem.service';
+import { CourseService } from '../../../../../Service/course.service';
 //import { CourseibrahemService } from '../../../../Service/courseibrahem.service';
-
 
 @Component({
   selector: 'app-std-exam',
@@ -18,26 +18,28 @@ ReactiveFormsModule
 
   ],
   providers:[
-    CourseibrahemService
+    CourseService
   ],
   templateUrl: './std-exam.component.html',
-  styleUrl: './std-exam.component.css',
+  styleUrl: './std-exam.component.css'
 })
 export class StdExamComponent implements OnInit {
   myForm=new FormGroup({
     answer:new FormControl(null,[Validators.required])
   })
   ID=0;
-  examid:any
+  selectedAnswers:any
   student:any[]=[];
   std:any
   username="";
- 
+ oneExam:any
 
-constructor(active:ActivatedRoute, private myservice:CourseibrahemService,private router:Router)
+
+
+constructor( private myservice:CourseibrahemService,private router:Router,Active:ActivatedRoute)
 {
   
-this.ID=active.snapshot.params["id"]
+  this.ID=Active.snapshot.params["id"]
 }
 ngOnInit():void
 {
@@ -47,35 +49,40 @@ ngOnInit():void
     error:(err)=>console.log(err)
   })
 
+  
   this.myservice.getExambyid(this.ID).subscribe({
-    next:(data)=>this.examid=data,
+    next:(data)=>this.oneExam=data,
     error:(err)=>console.log(err)
   })
 
 
-    
-   }
 
-  Submit() {
-    // const data = {
-    //   StdAnswer: this.myForm.value.answer,
-    //   Stdname: this.username,
-    //   Stdid: this.std.id,
-    //   //question id?
-    // };
-    // this.myservice.addstudentanswer(data).subscribe({
-    //   next: (data) => {
-    //     window.location.reload();
-    //   },
-    //   error: (err) => {
-    //     window.alert('sorry there is an error when add: ');
-    //   },
-    // });
+}
 
-    // this.router.navigate(['/send']);
-    // this.std = this.student.find((s) => s.username === this.username);
-  }
-  checkanswers() {
-    return this.myForm.controls['answer'].valid;
-  }
+Submit() {
+ const data={
+  StdAnswer:this.myForm.value.answer,
+  Stdname:this.username,
+  Stdid:this.std.id,
+  //question id?
+
+ };
+ this.myservice.addstudentanswer(data).subscribe({
+  next:(data)=>{
+   
+    window.location.reload();
+  },
+  error:(err)=>{window.alert("sorry there is an error when add: ")}
+ })
+  
+  this.router.navigate(['/send']);
+  this.std = this.student.find(s=>s.username===this.username);
+
+
+
+}
+checkanswers()
+{
+  return this.myForm.controls["answer"].valid
+}
 }

@@ -18,10 +18,6 @@ export class QuestionService {
     return this.myClient.get(this.DB_URL+"/"+id);
   }
 
-  getQuestionByQuizID(id:any){
-    return this.myClient.get(this.DB_URL+"/Quiz/"+id);
-  }
-
   AddNewQuestion(Question:any){
     return this.myClient.post(this.DB_URL,Question);
   }

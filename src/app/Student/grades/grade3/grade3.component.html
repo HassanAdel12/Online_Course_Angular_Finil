@@ -1,0 +1,10 @@
+<header>
+    <h1>Grade 3</h1>
+</header>
+<div class="container">
+    <div class="box" *ngFor="let item of items">
+        <img [src]="item.imageUrl" alt="Image">
+        <p>{{item.text}}</p>
+    </div>
+</div>
+
