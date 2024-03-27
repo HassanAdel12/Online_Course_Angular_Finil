@@ -1,0 +1,10 @@
+<header>
+    <h1>Grade 1</h1>
+</header>
+<div class="container">
+    <div class="box" *ngFor="let item of items">
+        <img [src]="item.imageUrl" alt="Image">
+        <a class="router-link" routerLinkActive="active" routerLink="/chooseinstructor">{{item.text}}</a>
+    </div>
+</div>
+

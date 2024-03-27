@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class GradeService {
 
-  private readonly DB_URL = "http://localhost:48190/api/Grade";
+  private readonly DB_URL = "http://localhost:3000";
 
   constructor(private readonly myClient:HttpClient) { }
 

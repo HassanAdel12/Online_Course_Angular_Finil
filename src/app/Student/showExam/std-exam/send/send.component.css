@@ -2,20 +2,17 @@
 
         
     
-
-        
-    
         
         *{font-family: 'Roboto', sans-serif;
-          padding: 0;
-          margin: 0;
-          box-sizing: border-box;
-          text-align: center;
-      }
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            text-align: center;
+        }
 
-      #thank a{
-          
-    text-decoration: none;
-    
+        #thank a{
+            
+      text-decoration: none;
+      
 
-      }
+        }

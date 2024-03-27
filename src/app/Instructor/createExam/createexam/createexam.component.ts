@@ -1,10 +1,13 @@
+import { QuizService } from './../../../../Service/quiz.service';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterModule } from '@angular/router';
-import { QuizService } from '../../../../Service/quiz.service';
+
 import { QuestionService } from '../../../../Service/question.service';
 import { ChoiseService } from '../../../../Service/choise.service';
+import { HttpClientModule } from '@angular/common/http';
+import { GroupService } from '../../../../Service/group.service';
 
 
 
@@ -23,13 +26,32 @@ interface Exam {
   selector: 'app-createexam',
   standalone: true,
   imports: [FormsModule, CommonModule,RouterLink,
-    RouterModule],
+    RouterModule,HttpClientModule],
+    providers:[QuizService],
   templateUrl: './createexam.component.html',
   styleUrl: './createexam.component.css'
 })
-export class CreateexamComponent {
+export class CreateexamComponent implements OnInit {
+ grade:any; 
+ group:any; 
+ngOnInit(): void {
+  this.QuizService.getAllQuizs().subscribe({
+    next:(data)=>{this.grade=data},
+    error:(err)=>{console.log(err)} 
+
+  }
+  ) ;
+  this.GroupService.getAllGroups().subscribe({
+    next:(data)=>{this.group=data},
+    error:(err)=>{console.log(err)} 
+  })
+  
 
 
+
+
+
+}
   instructor_ID = 1;
   course_ID = 1;
 
@@ -53,7 +75,9 @@ export class CreateexamComponent {
 
   constructor(private readonly QuizService : QuizService ,
     private readonly QuestionService : QuestionService ,
-    private readonly ChoiseService : ChoiseService , 
+    private readonly ChoiseService : ChoiseService ,
+     private readonly GroupService : GroupService ,
+     private readonly addquiez : QuizService ,
     private router : Router){ }
 
   addQuestion() {
@@ -69,13 +93,15 @@ export class CreateexamComponent {
     });
   }
 
+add(){
 
+}
   deleteQuestion(index: number) {
     this.exam.questions.splice(index, 1);
   }
 
 
-  saveExam() {
+  saveExam(examname:any) {
     
     //console.log('Saving exam:', this.exam);
 
@@ -122,7 +148,6 @@ export class CreateexamComponent {
           isCorrect : option.selected,
           question_ID : questionIndex
         } 
-        
         this.QuestionService.AddNewQuestion(myoption).subscribe({
             next:(data)=>{
               optionIndex = data;
