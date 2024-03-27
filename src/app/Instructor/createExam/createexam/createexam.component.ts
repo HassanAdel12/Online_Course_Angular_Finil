@@ -6,9 +6,6 @@ import { QuizService } from '../../../../Service/quiz.service';
 import { QuestionService } from '../../../../Service/question.service';
 import { ChoiseService } from '../../../../Service/choise.service';
 
-
-
-
 interface Question {
   question: string;
   options: { option: string; selected: boolean }[];
@@ -171,5 +168,4 @@ export class CreateexamComponent {
   getTotalOptions(questionIndex: number): number {
     return this.exam.questions[questionIndex].options.length;
   }
-
 }

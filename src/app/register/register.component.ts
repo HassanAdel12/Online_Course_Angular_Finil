@@ -17,14 +17,17 @@ import { CommonModule } from '@angular/common';
 export class RegisterComponent {
   
 registrationForm: FormGroup;
-
+emailExists = false;
+usernameExists = false;
 constructor(private fb: FormBuilder, private registrationService: JwtService,private router:Router) {
   this.registrationForm = this.fb.group({
     username: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, Validators.email,Validators.pattern(/^\w+@gmail\.com$/)]],
     password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
     confirmPassword: ['', Validators.required],
-    role: ['', Validators.required]
+    role: ['', Validators.required]}, 
+    { validator: this.passwordMatchValidator
+   
   });
 }
 
@@ -32,22 +35,57 @@ onSubmit() {
   if (this.registrationForm.valid) {
     this.registrationService.register(this.registrationForm.value).subscribe(
       response => {
-        if (response.statusText === 'OK') {
-          alert("Success Registration");
-          console.log('Success Registration', response);
-          this.router.navigate(['/login']);
-        } else {
-          console.error('Registration failed', response);
-        }
+        
+          // alert("Success Registration");
+          // console.log('Success Registration', response);
+          // this.router.navigate(['/Login']);
+          const userType = this.registrationForm.value.role;
+          if (userType === 'Student') {
+            this.router.navigate(['/Login']);
+          } else if (userType === 'Instructor') {
+            this.router.navigate(['/Dashboard']);
+          }
+     
         
       },
       error => {
-        console.error('Registration failed', error);
+        console.error('failed', error);
       }
     );
   }
 }
+
+passwordMatchValidator(re: FormGroup) {
+  const passwordControl = re.get('password');
+  const confirmPasswordControl = re.get('confirmPassword');
+
+  if (passwordControl && confirmPasswordControl) {
+    const password = passwordControl.value;
+    const confirmPassword = confirmPasswordControl.value;
+
+    if (password !== confirmPassword) {
+      confirmPasswordControl.setErrors({ passwordMismatch: true });
+    } else {
+      confirmPasswordControl.setErrors(null);
+    }
+  }
 }
+checkEmailExists() {
+  const email = this.registrationForm.get('email').value;
+  this.registrationService.checkEmailExists(email).subscribe(
+    exists => this.emailExists = exists
+  );
+}
+
+checkUsernameExists() {
+  const username = this.registrationForm.get('username').value;
+  this.registrationService.checkUsernameExists(username).subscribe(
+    exists => this.usernameExists = exists
+  );
+}
+}
+
+
  
 
 
@@ -111,4 +149,3 @@ onSubmit() {
   //     this.router.navigate(['/']);
   //   }
   // }
-  
