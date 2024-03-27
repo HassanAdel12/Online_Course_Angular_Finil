@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class QuizService {
 
-  private readonly DB_URL ="http://localhost:3000/examdb";
+  private readonly DB_URL ="http://localhost:48190/api/Quiz";
 
   constructor(private readonly myClient:HttpClient) { }
 
@@ -15,6 +15,11 @@ export class QuizService {
   }
 
   getQuizByID(id:any){
+    return this.myClient.get(this.DB_URL+"/"+id);
+  }
+
+  
+  getQuizByGroupID(id:any){
     return this.myClient.get(this.DB_URL+"/"+id);
   }
 

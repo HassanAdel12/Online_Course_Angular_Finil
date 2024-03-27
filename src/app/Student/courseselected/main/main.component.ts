@@ -16,6 +16,11 @@ import { ActivatedRoute, RouterLink } from "@angular/router";
   styleUrl: './main.component.css'
 })
 export class MainComponent {
+
+
+  @Input() Groupid: any;
+
+  
   id=0;
 course:any
 

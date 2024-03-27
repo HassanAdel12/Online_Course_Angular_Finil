@@ -20,19 +20,14 @@ import { MainUComponent } from '../main-u/main-u.component';
     RouterLink,
     RouterModule,
   ],
+  providers: [GroupService],
   templateUrl: './courseselected.component.html',
   styleUrl: './courseselected.component.css'
 })
 export class CourseselectedComponent {
-  course_name:any
-constructor(private myservec:CourseibrahemService){}
-ngOnInit():void
-{
-  this.myservec.getcourses().subscribe(
-    {
-      next:(data)=>this.course_name=data,
-      error:(err)=>console.log(err)
-    }
-  )
-}
+  id: any;
+  constructor(
+    private router: Router , private Actived : ActivatedRoute){ 
+   this.id = this.Actived.snapshot.params["id"];
+ }
 }
