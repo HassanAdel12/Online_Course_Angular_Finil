@@ -6,20 +6,57 @@
 
             <div id="e3" class="m-auto">
 
+<<<<<<< HEAD
                 <input type="text" [(ngModel)]="username" class="form-control" placeholder="Enter Your Name">
+=======
+<input type="text" [(ngModel)]="username"  
+ class="form-control" placeholder="Enter Your Name">
+>>>>>>> eb2f1d6c64c92adf45258da95a56dc16adfe388e
 
             </div>
 
+<<<<<<< HEAD
             <div id="header" class="m-auto">
                 <h2>{{quiz.quiz_Name}}</h2>
+=======
+<div id="header"  class="m-auto" >
+<h2>{{oneExam.name}}</h2>
+>>>>>>> eb2f1d6c64c92adf45258da95a56dc16adfe388e
 
             </div>
 
 
 
 
+<<<<<<< HEAD
             <div id="body" class="m-auto">
                 @for (Question of Questions; track Question.question_ID) {
+=======
+<div id="body"  class="m-auto">
+   @for (i of oneExam.questions; track i.id) {
+ 
+    
+<h3>{{i.name}} </h3>
+
+<div >
+   
+    <ul class="mt-4 " type="A">
+        @for (u of i.choise; track u.id) {
+        <li class="mt-2">
+           
+            <label for="q" > {{u.text}} <input class="ms-2" name="{{i.id}}" id="q"   type="radio"> </label> 
+    
+        </li>
+     } 
+    </ul>
+
+  
+</div>
+
+}
+</div>
+ 
+>>>>>>> eb2f1d6c64c92adf45258da95a56dc16adfe388e
 
 
                 <h3>{{Question.question_Text}} </h3>

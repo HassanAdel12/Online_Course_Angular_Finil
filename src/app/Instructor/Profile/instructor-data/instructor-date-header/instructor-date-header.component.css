@@ -1,13 +1,11 @@
 #header
 {
-    height: 490px;
+    height: 430px;
     background-color: lightblue; 
-    margin-top: 2px;
 }
 #header h1
 {
-    padding-top: 40px;
-    margin-left: 55px;
+ text-align: center;
     color: black;
 }
 .box
@@ -15,7 +13,7 @@
     display: inline-block;
     width: 200px;
     height: 150px;
-
+    background-color: lightblue;
     border-radius: 10px;
     margin-top: 50px;
   
@@ -25,7 +23,7 @@
     display: inline-block;
     width: 200px;
     height: 150px;
-    background-color:whitesmoke;
+    background-color: whitesmoke;
     border-radius: 10px;
 }
 #one a h3
@@ -111,21 +109,21 @@
 
 #one:hover
 {
-    background-color: rgb(109, 147, 158);
+    background-color: rgb(100, 172, 196);
 }
 #two:hover
 {
-    background-color: rgb(109, 147, 158);
+    background-color: rgb(100, 172, 196);
 }
 #three:hover
 {
-    background-color: rgb(109, 147, 158);
+    background-color: rgb(100, 172, 196);
 }
 #four:hover
 {
-    background-color: rgb(109, 147, 158);
+    background-color: rgb(100, 172, 196);
 }
 #container
 {
-    padding-top: 40px;
+    padding-top: 50px;
 }

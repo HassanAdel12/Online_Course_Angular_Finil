@@ -1,81 +1,56 @@
 import { HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router, RouterModule } from '@angular/router';
-
 import { CommonModule } from '@angular/common';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CourseibrahemService } from '../../../../Service/courseibrahem.service';
-import { CourseService } from '../../../../Service/course.service';
-import { QuizService } from '../../../../Service/quiz.service';
-import { QuestionService } from '../../../../Service/question.service';
+
 
 @Component({
   selector: 'app-std-exam',
   standalone: true,
-  imports: [HttpClientModule, CommonModule, FormsModule, ReactiveFormsModule],
-  providers: [QuizService,QuestionService],
+  imports: [
+HttpClientModule,
+CommonModule,
+FormsModule,
+ReactiveFormsModule
+
+  ],
+  providers:[
+    CourseibrahemService
+  ],
   templateUrl: './std-exam.component.html',
   styleUrl: './std-exam.component.css',
 })
 export class StdExamComponent implements OnInit {
+  myForm=new FormGroup({
+    answer:new FormControl(null,[Validators.required])
+  })
+  ID=0;
+  examid:any
+  student:any[]=[];
+  std:any
+  username="";
+ 
+
+constructor(active:ActivatedRoute, private myservice:CourseibrahemService,private router:Router)
+{
   
-  getAnswer(event: any) {
-    let value = event.value;
+this.ID=active.snapshot.params["id"]
+}
+ngOnInit():void
+{
 
-    console.log(event);
-  }
+  this.myservice.getstudent_quiz().subscribe({
+    next:(data:any)=>this.student=data,
+    error:(err)=>console.log(err)
+  })
 
-  myForm = new FormGroup({
-    answer: new FormControl(null, [Validators.required]),
-  });
+  this.myservice.getExambyid(this.ID).subscribe({
+    next:(data)=>this.examid=data,
+    error:(err)=>console.log(err)
+  })
 
-  // ID = 0;
-  // selectedAnswers: any;
-  // student: any[] = [];
-  // std: any;
-  username = '';
-  // oneExam: any;
-
-  //questionIndex: any;
-
-  quiz_ID : any;
-  Questions : any;
-  quiz:any;
-
-  constructor(
-    private QuizService: QuizService , private QuestionService: QuestionService,
-    private router: Router,
-    Active: ActivatedRoute
-  ) {
-    this.quiz_ID = Active.snapshot.params['id'];
-  }
-
-  ngOnInit(): void {
-
-    this.QuizService.getQuizByID(this.quiz_ID).subscribe({
-      next:(data)=>{
-        this.quiz = data;
-      },
-      error:(err)=>{
-        this.router.navigate(['/Error',{errormessage : err.message as string}]);
-      }
-    })
-  
-    this.QuestionService.getQuestionByQuizID(this.quiz_ID).subscribe({
-      next:(data)=>{
-        this.Questions = data;
-      },
-      error:(err)=>{
-        this.router.navigate(['/Error',{errormessage : err.message as string}]);
-      }
-    })
 
     
    }

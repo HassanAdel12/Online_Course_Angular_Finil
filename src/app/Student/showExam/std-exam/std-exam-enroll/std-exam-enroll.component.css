@@ -44,6 +44,7 @@
         align-items: stretch ;
        
     
+<<<<<<< HEAD
         box-sizing: border-box ;
         display: flex ;
         margin: 0px ;
@@ -81,3 +82,24 @@
        width: 20px;
       height: 20px;
     }
+=======
+}
+#d
+{
+    overflow-y: scroll;
+    height: 800px;
+}
+#b a{
+    text-decoration: none;
+
+    
+}
+#go
+{
+    margin-left: 100px;
+}
+#b h3{
+   width: 20px;
+  height: 20px;
+}
+>>>>>>> eb2f1d6c64c92adf45258da95a56dc16adfe388e

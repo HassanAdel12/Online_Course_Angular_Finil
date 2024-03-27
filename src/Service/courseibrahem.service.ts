@@ -14,8 +14,11 @@ export class CourseibrahemService {
 
   private std="http://localhost:3000/Student";
 
-  private stdanswer ="http://localhost:3000/Student/StudentAnswers";
+  private stdanswer ="http://localhost:3000/StudentAnswers";
   
+  private instructordata ="http://localhost:3000/instrutordata";
+
+  private instructoraddress="http://localhost:3000/address";
 
   constructor(private http: HttpClient) { }
 
@@ -33,14 +36,18 @@ export class CourseibrahemService {
   {
     return this.http.get(this.coursedb_url+"/"+id);
   }
+
+
   getExams()
   {
   return this.http.get(this.examdb);
   }
+
   getExambyid(id:any)
   {
  return this.http.get(this.examdb+"/"+id);
   }
+  
   getstudent_quiz()
   {
     return this.http.get(this.std);
@@ -48,5 +55,13 @@ export class CourseibrahemService {
   addstudentanswer(answers:any)
   {
  return this.http.post(this.stdanswer,answers)
+  }
+  addinstrutordata(data:any)
+  {
+    return this.http.post(this.instructordata,data)
+  }
+  addistructoraddress(address:any)
+  {
+   return this.http.post(this.instructoraddress,address)
   }
 }

@@ -33,7 +33,7 @@ export class LoginComponent {
          
           localStorage.setItem('token', token);
         
-          this.router.navigate(['/Home']);
+          this.router.navigate(['/grades']);
         },
         (error: any) => {
           console.error('Login failed:', error);
