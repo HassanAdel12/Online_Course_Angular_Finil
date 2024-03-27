@@ -18,6 +18,11 @@ export class QuizService {
     return this.myClient.get(this.DB_URL+"/"+id);
   }
 
+  getQuizByGroupID(id:any){
+    return this.myClient.get("http://localhost:48190/api/AllExams/Group/"+id);
+  }
+
+
   AddNewQuiz(Quiz:any){
     return this.myClient.post(this.DB_URL,Quiz);
   }

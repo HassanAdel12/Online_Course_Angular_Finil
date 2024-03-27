@@ -119,6 +119,7 @@ export class CreateexamComponent {
           isCorrect : option.selected,
           question_ID : questionIndex
         } 
+        
         this.QuestionService.AddNewQuestion(myoption).subscribe({
             next:(data)=>{
               optionIndex = data;
