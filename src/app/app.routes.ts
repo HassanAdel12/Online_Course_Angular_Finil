@@ -22,6 +22,7 @@ import { ExamPageComponent } from './Student/showExam/std-exam/exam-page/exam-pa
 import { StdExamComponent } from './Student/showExam/std-exam/std-exam/std-exam.component';
 import { SesstionAndVidosComponent } from './Student/courseselected/sesstion-and-vidos/sesstion-and-vidos.component';
 import { InstructordashboardComponent } from './Instructor/instructorfinalDashboard/instructordashboard/instructordashboard.component';
+import { CreatesessionComponent } from './Instructor/createsession/createsession.component';
 //import { StdExamComponent } from './Student/showExam/std-exam/std-exam.component';
 
 export const routes: Routes = [
@@ -41,6 +42,7 @@ export const routes: Routes = [
 
     {path:"Instructordashboard",component : InstructordashboardComponent},
     {path:"profile",component:ProfileComponent},
+    {path:"Createsession",component : CreatesessionComponent},
     // {path:"stepscreate",component:InstructorDateHeaderComponent},
     // {path:"step1",component:InstructorDataComponent},
     // {path:"step2",component:InstructordatatwoComponent},
