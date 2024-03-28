@@ -22,6 +22,10 @@ import { ExamPageComponent } from './Student/showExam/std-exam/exam-page/exam-pa
 import { StdExamComponent } from './Student/showExam/std-exam/std-exam/std-exam.component';
 import { SesstionAndVidosComponent } from './Student/courseselected/sesstion-and-vidos/sesstion-and-vidos.component';
 import { InstructordashboardComponent } from './Instructor/instructorfinalDashboard/instructordashboard/instructordashboard.component';
+import { TermsAndAdvicesComponent } from './Instructor/Profile/Terms and Advices/terms-and-advices/terms-and-advices.component';
+import { InstructorDataComponent } from './Instructor/Profile/instructor-data/instructor-data.component';
+import { InstructordatatwoComponent } from './Instructor/Profile/instructor-data/instructordatatwo/instructordatatwo.component';
+import { InstructorDateHeaderComponent } from './Instructor/Profile/instructor-data/instructor-date-header/instructor-date-header.component';
 //import { StdExamComponent } from './Student/showExam/std-exam/std-exam.component';
 
 export const routes: Routes = [
@@ -41,17 +45,16 @@ export const routes: Routes = [
 
     {path:"Instructordashboard",component : InstructordashboardComponent},
     {path:"profile",component:ProfileComponent},
-    // {path:"stepscreate",component:InstructorDateHeaderComponent},
-    // {path:"step1",component:InstructorDataComponent},
-    // {path:"step2",component:InstructordatatwoComponent},
-    // {path:"step3",component:TermsAndAdvicesComponent},
+    {path:"stepscreate",component:InstructorDateHeaderComponent},
+    {path:"step1",component:InstructorDataComponent},
+    {path:"step2",component:InstructordatatwoComponent},
+    {path:"step3",component:TermsAndAdvicesComponent},
     {path:"MYGroup",component:InstgroupsComponent},
     {path:"createExam",component:CreateexamComponent},
     {path:"createGroup",component:AddGroupComponent},
-    //{path:"Dashboard",component:InstructordashboardComponent},
+    {path:"Dashboard",component:InstructordashboardComponent},
     {path:"First",component:DashBoardGradeOneComponent},
-    //{path:"Second",component:DashBoardGradeTwoComponent},
-    //{path:"Third",component:DashBoardGradeThreeComponent},
+   
 
     {path:"**",component:ErrorComponent}
 

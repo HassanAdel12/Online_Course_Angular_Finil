@@ -32,8 +32,15 @@ export class LoginComponent {
           const token = response.token;
          
           localStorage.setItem('token', token);
-        
-          this.router.navigate(['/grades']);
+          if (this.loginForm.value.username === 'Ahmed') {
+            this.router.navigate(['/Login']);
+          } else if ( this.loginForm.value.username=== 'Ali') {
+            this.router.navigate(['/Dashboard']);
+          }
+
+
+
+          this.router.navigate(['/choocegrade']);
         },
         (error: any) => {
           console.error('Login failed:', error);

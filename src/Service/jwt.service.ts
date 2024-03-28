@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, catchError, throwError } from 'rxjs';
 
 @Injectable({
@@ -9,7 +10,10 @@ export class JwtService {
 
   private jwt_url = 'http://localhost:48190/api/Account';
 
-  constructor(private myclient: HttpClient) { }
+ 
+
+
+  constructor(private myclient: HttpClient ,private router: Router) { }
 
  
 
@@ -21,6 +25,7 @@ export class JwtService {
   }
 
   
+
   
 // //////////////////////////////////////////////////
  
