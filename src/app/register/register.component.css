@@ -66,14 +66,14 @@ body{
 .wrapper button{
     width:100% ; 
     height:45px; 
-    background: #b49898;
+    background: lightblue;
     border:none ; 
     outline: none;
     border-radius: 6px;
     box-shadow: 0 0 10px rgba(0,0,0,.1);
     cursor: pointer;
-    font-size: 16px;
-    color:#333; 
+    font-size: 20px;
+    color:black; 
     font-weight: 600;
 
 }
@@ -90,4 +90,27 @@ body{
 }
 input.ng-invalid.ng-touched{
     border: 1px solid red;
+}
+
+.text-center {
+    
+    padding-left: 140px;
+    font-weight: bold;
+}
+
+.text-danger {
+    color: red;
+}
+
+.inputbox .inputfield select{
+    width:100% ; 
+    height:100%; 
+    background: transparent;
+    border: 2px solid black;
+    outline: none;
+    font-size: 16px;
+    color:#0b0000 ; 
+    border-radius: 6px;
+    padding: 15px 15px 15px 40px;
+    margin-left:180px
 }

@@ -1,14 +1,11 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { InstgroupsComponent } from './Instructor/instgroups/instgroups.component';
-import { ProfileComponent } from './Instructor/Profile/profile/profile.component';
-import { CreateexamComponent } from './Instructor/createExam/createexam/createexam.component';
-import { InstructorComponent } from './Student/Component/instructors/instructors.component';
-import { CourseselectedComponent } from './Student/courseselected/courseselected/courseselected.component';
+import { Component } from "@angular/core";
+import { HeaderComponent } from "./header/header.component";
+import { FooterComponent } from "./footer/footer.component";
+import { RouterOutlet } from "@angular/router";
 
 
+<<<<<<< HEAD
+=======
 //import { ExamPageComponent } from './Student/showExam/exam-page/exam-page.component';
 //import { StdExamComponent } from './Student/showExam/std-exam/std-exam.component';
 
@@ -21,23 +18,13 @@ import { choosegradeComponent } from './Student/grades/choocegrade/chooseinstruc
 import { AllCoursesComponent } from './Instructor/creategroup/all-courses/all-courses.component';
 import { ChooseinstructorComponent } from './Student/grades/chooseinstructor/chooseinstructor.component';
 
+>>>>>>> 73646067df807fd8bf2a1f25efd624b2de13fd26
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  // imports: [RouterOutlet,
-  //   HeaderComponent,
-  //   FooterComponent,
-  //   ProfileComponent
-  //   ,InstgroupsComponent,
-  //   CreateexamComponent,InstructorComponent,
-  //   CourseselectedComponent,MainComponent,MainUComponent,ExamPageComponent,
-  //   StdExamComponent,SendComponent,StdExamEnrollComponent,DashBoardGradeOneComponent,DashBoardGradeTwoComponent,
-  //   DashBoardGradeThreeComponent,Grade1Component,Grade2Component,Grade3Component,AddGroupComponent
-  //   ,StepsCreateComponent,choosegradeComponent,AllCoursesComponent,ChooseinstructorComponent
-  // ],
   imports: [
     HeaderComponent,FooterComponent,RouterOutlet
   ],

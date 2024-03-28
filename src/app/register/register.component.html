@@ -2,49 +2,55 @@
 
   <div class="wrapper">
     <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-      <h1 style="color:black">Registration</h1>
+      <h1 style="color:black">Sign UP</h1>
       <div class="inputbox">
         <div class="inputfield">
           <input type="text" placeholder="Username" formControlName="username">
-          <img src="assets/images/user.png" style="margin-top: 7px;">
+          <img src="assets/images/user.png" style="margin-top: 5px;">
         </div>
-        <small *ngIf="registrationForm.get('username')?.errors && registrationForm.get('username')?.touched" 
-               class="form-text text-muted">Username is required and must be at least 3 chars</small>
+        <div *ngIf="registrationForm.get('username')?.errors && registrationForm.get('username')?.touched" 
+               class="form-text text-center text-danger">Username is required and must be at least 3 chars</div>
       </div>
       <div class="inputbox">
         <div class="inputfield">
           <input type="email" placeholder="Email" formControlName="email">
           <img src="assets/images/email.png">
         </div>
-        <small *ngIf="registrationForm.get('email')?.errors && registrationForm.get('email')?.touched" 
-               class="form-text text-muted">Email address must be from'&#64;gmail.com' domain</small>
+        <div *ngIf="registrationForm.get('email')?.errors && registrationForm.get('email')?.touched" 
+               class="form-text text-center text-danger">Email address must be from'&#64;gmail.com' domain</div>
       </div>
       <div class="inputbox">
         <div class="inputfield">
           <input type="password" placeholder="Password" formControlName="password">
           <img src="assets/images/lock.png" margin-top="10px">
         </div>
-        <small *ngIf="registrationForm.get('password')?.errors && registrationForm.get('password')?.touched" 
-               class="form-text text-muted">Password is required and must between 6 and 20 chars</small>
+        <div *ngIf="registrationForm.get('password')?.errors && registrationForm.get('password')?.touched" 
+               class="form-text text-center text-danger">Password is required and must between 6 and 20 chars</div>
       </div>
       <div class="inputbox">
         <div class="inputfield">
           <input type="password" placeholder="Confirm Password" formControlName="confirmPassword">
           <img src="assets/images/lock.png" margin-top="10px">
-          <!-- <div *ngIf="registrationForm.get('confirmPassword').hasError('passwordMismatch')">Passwords do not match</div> -->
-          <div *ngIf="registrationForm.get('confirmPassword')?.errors?.['passwordMismatch'] && registrationForm.get('confirmPassword')?.touched">
-            <small class="form-text text-muted">Passwords not matched </small>
-          </div>
+          <div *ngIf="registrationForm.get('confirmPassword')?.hasError('passwordMismatch')" class="form-text text-center text-danger">Passwords do not match</div>
+          
         </div>
       </div>
+    
       <div class="inputbox">
         <div class="inputfield">
-          <input type="text"id="role" placeholder="Role (Instructor OR Student )" formControlName="role">
+          <select class="s"formControlName="role" required>
+            <option value="" disabled selected>Select Role</option>
+            <option value="Instructor">Instructor</option>
+            <option value="Student">Student</option>
+          </select>
         </div>
-        <small *ngIf="registrationForm.get('role')?.errors && registrationForm.get('role')?.touched" 
-               class="form-text text-muted">Role is required</small>
+        <div *ngIf="registrationForm.get('role')?.invalid && registrationForm.get('role')?.touched"
+          class="form-text text-center text-danger">Role is required.
+        </div>
       </div>
-      <button type="submit" [disabled]="registrationForm.invalid">Register</button>
+      
+      
+      <button type="submit" [disabled]="registrationForm.invalid">Sign UP</button>
     </form>
   </div>
   

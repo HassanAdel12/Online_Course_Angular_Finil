@@ -14,10 +14,13 @@ import { CommonModule } from '@angular/common';
   templateUrl:'./register.component.html',
   styleUrl: './register.component.css'
 })
+
+
 export class RegisterComponent {
   
 registrationForm: FormGroup;
-
+emailExists = false;
+usernameExists = false;
 constructor(private fb: FormBuilder, private registrationService: JwtService,private router:Router) {
   this.registrationForm = this.fb.group({
     username: ['', [Validators.required, Validators.minLength(3)]],
@@ -25,6 +28,9 @@ constructor(private fb: FormBuilder, private registrationService: JwtService,pri
     password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
     confirmPassword: ['', Validators.required],
     role: ['', Validators.required]
+  }, 
+    { validator: this.passwordMatchValidator
+   
   });
 }
 
@@ -32,22 +38,45 @@ onSubmit() {
   if (this.registrationForm.valid) {
     this.registrationService.register(this.registrationForm.value).subscribe(
       response => {
-        if (response.statusText === 'OK') {
-          alert("Success Registration");
-          console.log('Success Registration', response);
-          this.router.navigate(['/login']);
-        } else {
-          console.error('Registration failed', response);
-        }
+        
+          // alert("Success Registration");
+          // console.log('Success Registration', response);
+          // this.router.navigate(['/Login']);
+          const userType = this.registrationForm.value.role;
+          if (userType === 'Student') {
+            this.router.navigate(['/Login']);
+          } else if (userType === 'Instructor') {
+            this.router.navigate(['/Dashboard']);
+          }
+     
         
       },
       error => {
-        console.error('Registration failed', error);
+        console.error('failed', error);
       }
     );
   }
 }
+
+passwordMatchValidator(re: FormGroup) {
+  const passwordGet = re.get('password');
+  const getconfirmPassword = re.get('confirmPassword');
+
+  if (passwordGet && getconfirmPassword) {
+    const password = passwordGet.value;
+    const confirmPassword = getconfirmPassword.value;
+
+    if (password !== confirmPassword) {
+      getconfirmPassword.setErrors({ passwordMismatch: true });
+    } else {
+      getconfirmPassword.setErrors(null);
+    }
+  }
 }
+
+}
+
+
  
 
 
@@ -111,4 +140,3 @@ onSubmit() {
   //     this.router.navigate(['/']);
   //   }
   // }
-  
