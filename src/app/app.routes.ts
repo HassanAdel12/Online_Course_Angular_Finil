@@ -22,10 +22,15 @@ import { ExamPageComponent } from './Student/showExam/std-exam/exam-page/exam-pa
 import { StdExamComponent } from './Student/showExam/std-exam/std-exam/std-exam.component';
 import { SesstionAndVidosComponent } from './Student/courseselected/sesstion-and-vidos/sesstion-and-vidos.component';
 import { InstructordashboardComponent } from './Instructor/instructorfinalDashboard/instructordashboard/instructordashboard.component';
+<<<<<<< HEAD
 import { TermsAndAdvicesComponent } from './Instructor/Profile/Terms and Advices/terms-and-advices/terms-and-advices.component';
 import { InstructorDataComponent } from './Instructor/Profile/instructor-data/instructor-data.component';
 import { InstructordatatwoComponent } from './Instructor/Profile/instructor-data/instructordatatwo/instructordatatwo.component';
 import { InstructorDateHeaderComponent } from './Instructor/Profile/instructor-data/instructor-date-header/instructor-date-header.component';
+=======
+import { CreatesessionComponent } from './Instructor/createsession/createsession.component';
+import { SendComponent } from './Student/showExam/std-exam/send/send.component';
+>>>>>>> e878750e79482c1c0f8af6a1b0dc94bd551f97a8
 //import { StdExamComponent } from './Student/showExam/std-exam/std-exam.component';
 
 export const routes: Routes = [
@@ -41,14 +46,22 @@ export const routes: Routes = [
     {path:"Exam/:id",component:ExamPageComponent},
     {path:"StdExam/:id",component:StdExamComponent},
     {path:"SesstionAndVidos/:id",component:SesstionAndVidosComponent},
-
+    {path:"Send/:id",component:SendComponent},
 
     {path:"Instructordashboard",component : InstructordashboardComponent},
     {path:"profile",component:ProfileComponent},
+<<<<<<< HEAD
     {path:"stepscreate",component:InstructorDateHeaderComponent},
     {path:"step1",component:InstructorDataComponent},
     {path:"step2",component:InstructordatatwoComponent},
     {path:"step3",component:TermsAndAdvicesComponent},
+=======
+    {path:"Createsession",component : CreatesessionComponent},
+    // {path:"stepscreate",component:InstructorDateHeaderComponent},
+    // {path:"step1",component:InstructorDataComponent},
+    // {path:"step2",component:InstructordatatwoComponent},
+    // {path:"step3",component:TermsAndAdvicesComponent},
+>>>>>>> e878750e79482c1c0f8af6a1b0dc94bd551f97a8
     {path:"MYGroup",component:InstgroupsComponent},
     {path:"createExam",component:CreateexamComponent},
     {path:"createGroup",component:AddGroupComponent},
