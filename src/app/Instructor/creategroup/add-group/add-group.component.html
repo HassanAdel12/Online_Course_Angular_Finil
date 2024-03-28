@@ -1,46 +1,47 @@
-<div class="container" >
-    
+<div class="container">
+
     <div class="jumbotron">
-        <h1 class="display-4">What classes are you teaching?</h1>
-        <p>** Academy has world-class, standards-aligned content for K-14 Math, Science, History, AP®, SAT®, and more.</p>
+        <h1 class="display-4">Create Group</h1>
+        <p>My teather Academy has world-class, standards-aligned content for K-14 Math, Science, History, AP®, SAT®, and
+            more.</p>
         <hr class="my-4">
     </div>
     <form class="d-flex w-75 m-auto mt-4 mb-4" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search for courses" aria-label="Search">
     </form>
-        <div class="d-grid gap-2 w-75 m-auto" *ngIf="!showDashBoard">
-            <button class="btn btn-lg btn-outline-primary mb-4"  type="button" (click)="showAddGroup()">Create New Group</button>
-        </div>
-        <div class="d-grid gap-2 w-75 m-auto" *ngIf="showDashBoard">
-            <button class="btn btn-lg btn-primary mb-4"  type="button" (click)="hideAddGroup()">Show Less</button>
-        </div>
-    <div class="w-75 m-auto"  *ngIf="showDashBoard" style="height: 575px;">
+    <div class="w-75 m-auto" style="height: 575px;">
         <div class="row">
             <div class=" col-md-6 col-12 mt-4 ">
                 <div class="jumbotron">
-                    <h5 class="fs-4">What Grade are you teaching?</h5>
+                    <h5 class="fs-4">Choose Grade</h5>
                     <hr class="my-4 w-75">
-                    <a routerLink="/First" routerLinkActive="activ" class=" fs-4">First Grade of Middle School</a><br><br>
-                    <a routerLink="/Second" routerLinkActive="activ" class=" fs-4"  >Second Grade of Middle School</a><br><br>
-                    <a routerLink="/Third" routerLinkActive="activ" class=" fs-4 "  >Third Grade of Middle School</a>
+                    @for (Grade of Grades; track Grade.grade_ID) {
+                        <input class="form-check-input" type="radio" id="{{Grade.grade_ID}}" 
+                        (change)="onchange(Grade.grade_ID)" name = "{{Grade}}">
+                        <label class="form-check-label" for="{{Grade.grade_ID}}">{{Grade.grade_Name}}</label>
+                        <br><br>
+                    }
+                    
                 </div>
             </div>
             <div class=" col-md-5 col-12 mt-4 ">
-                <router-outlet></router-outlet>
+                @if (grade_ID != 0 ) {
+                    <app-dash-board-grade-one [grade_ID] ="grade_ID" ></app-dash-board-grade-one>
+                }
+                
             </div>
         </div>
     </div>
-    
-</div>
-<div class="container" >
-    <div class="w-75 m-auto" >
-    @for(g of groups;track g.id){
-        <app-all-courses [oneGroup]="g" ></app-all-courses>
-    }
-    </div>
-</div>
 
-    <!-- <form action="">
+</div>
+<!-- <div class="container">
+    <div class="w-75 m-auto">
+        @for(g of groups;track g.id){
+        <app-all-courses [oneGroup]="g"></app-all-courses>
+        }
+    </div>
+</div> -->
+
+<!-- <form action="">
         <div class="row">
             <label for="Grade" class="col-sm-2 col-form-label">Grade</label>
             <div class="col-sm-10">
@@ -58,4 +59,3 @@
             <input type="email" class="form-control" id="Course-Name"  placeholder="Enter Course Name">
         </div>
     </form> -->
-

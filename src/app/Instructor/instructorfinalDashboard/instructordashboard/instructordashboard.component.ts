@@ -9,13 +9,11 @@ import { Router, RouterLink, RouterModule } from '@angular/router';
   styleUrl: './instructordashboard.component.css'
 })
 export class InstructordashboardComponent {
+  
   constructor(private router: Router) {
     
   }
-  createexam(){
-   
-    window.location.href = '/ExamComponent';
-  }
+  
 
 
 }

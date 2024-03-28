@@ -14,12 +14,14 @@ import { ProfileComponent } from './Instructor/Profile/profile/profile.component
 import { InstgroupsComponent } from './Instructor/instgroups/instgroups.component';
 import { CreateexamComponent } from './Instructor/createExam/createexam/createexam.component';
 import { AddGroupComponent } from './Instructor/creategroup/add-group/add-group.component';
-import { DashBoardGradeOneComponent } from './Instructor/creategroup/dash-board-grade-one/dash-board-grade-one.component';
-import { DashBoardGradeTwoComponent } from './Instructor/creategroup/dash-board-grade-two/dash-board-grade-two.component';
-import { DashBoardGradeThreeComponent } from './Instructor/creategroup/dash-board-grade-three/dash-board-grade-three.component';
+import { DashBoardGradeOneComponent } from './Instructor/creategroup/dash-board-grade/dash-board-grade.component';
+//import { DashBoardGradeTwoComponent } from './Instructor/creategroup/dash-board-grade-two/dash-board-grade-two.component';
+//import { DashBoardGradeThreeComponent } from './Instructor/creategroup/dash-board-grade-three/dash-board-grade-three.component';
 import { GradeComponent } from './Student/grades/grade/grade.component';
 import { ExamPageComponent } from './Student/showExam/std-exam/exam-page/exam-page.component';
 import { StdExamComponent } from './Student/showExam/std-exam/std-exam/std-exam.component';
+import { SesstionAndVidosComponent } from './Student/courseselected/sesstion-and-vidos/sesstion-and-vidos.component';
+import { InstructordashboardComponent } from './Instructor/instructorfinalDashboard/instructordashboard/instructordashboard.component';
 //import { StdExamComponent } from './Student/showExam/std-exam/std-exam.component';
 
 export const routes: Routes = [
@@ -34,6 +36,10 @@ export const routes: Routes = [
     {path:"courseselected/:id",component:CourseselectedComponent},
     {path:"Exam/:id",component:ExamPageComponent},
     {path:"StdExam/:id",component:StdExamComponent},
+    {path:"SesstionAndVidos/:id",component:SesstionAndVidosComponent},
+
+
+    {path:"Instructordashboard",component : InstructordashboardComponent},
     {path:"profile",component:ProfileComponent},
     // {path:"stepscreate",component:InstructorDateHeaderComponent},
     // {path:"step1",component:InstructorDataComponent},
@@ -44,8 +50,8 @@ export const routes: Routes = [
     {path:"createGroup",component:AddGroupComponent},
     //{path:"Dashboard",component:InstructordashboardComponent},
     {path:"First",component:DashBoardGradeOneComponent},
-    {path:"Second",component:DashBoardGradeTwoComponent},
-    {path:"Third",component:DashBoardGradeThreeComponent},
+    //{path:"Second",component:DashBoardGradeTwoComponent},
+    //{path:"Third",component:DashBoardGradeThreeComponent},
 
     {path:"**",component:ErrorComponent}
 
