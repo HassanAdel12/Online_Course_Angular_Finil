@@ -14,6 +14,8 @@ import { CommonModule } from '@angular/common';
   templateUrl:'./register.component.html',
   styleUrl: './register.component.css'
 })
+
+
 export class RegisterComponent {
   
 registrationForm: FormGroup;
@@ -25,7 +27,8 @@ constructor(private fb: FormBuilder, private registrationService: JwtService,pri
     email: ['', [Validators.required, Validators.email,Validators.pattern(/^\w+@gmail\.com$/)]],
     password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
     confirmPassword: ['', Validators.required],
-    role: ['', Validators.required]}, 
+    role: ['', Validators.required]
+  }, 
     { validator: this.passwordMatchValidator
    
   });
@@ -56,33 +59,21 @@ onSubmit() {
 }
 
 passwordMatchValidator(re: FormGroup) {
-  const passwordControl = re.get('password');
-  const confirmPasswordControl = re.get('confirmPassword');
+  const passwordGet = re.get('password');
+  const getconfirmPassword = re.get('confirmPassword');
 
-  if (passwordControl && confirmPasswordControl) {
-    const password = passwordControl.value;
-    const confirmPassword = confirmPasswordControl.value;
+  if (passwordGet && getconfirmPassword) {
+    const password = passwordGet.value;
+    const confirmPassword = getconfirmPassword.value;
 
     if (password !== confirmPassword) {
-      confirmPasswordControl.setErrors({ passwordMismatch: true });
+      getconfirmPassword.setErrors({ passwordMismatch: true });
     } else {
-      confirmPasswordControl.setErrors(null);
+      getconfirmPassword.setErrors(null);
     }
   }
 }
-checkEmailExists() {
-  const email = this.registrationForm.get('email').value;
-  this.registrationService.checkEmailExists(email).subscribe(
-    exists => this.emailExists = exists
-  );
-}
 
-checkUsernameExists() {
-  const username = this.registrationForm.get('username').value;
-  this.registrationService.checkUsernameExists(username).subscribe(
-    exists => this.usernameExists = exists
-  );
-}
 }
 
 

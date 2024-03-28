@@ -11,13 +11,7 @@ export class JwtService {
 
   constructor(private myclient: HttpClient) { }
 
-  checkEmailExists(email: string): Observable<boolean> {
-    return this.myclient.get<boolean>(`/api/Account/checkEmailExists?email=${email}`);
-  }
-
-  checkUsernameExists(username: string): Observable<boolean> {
-    return this.myclient.get<boolean>(`/api/Account/checkUsernameExists?username=${username}`);
-  }
+ 
 
 
 
@@ -47,16 +41,20 @@ export class JwtService {
   }
 
   private handleError(error: any) {
-    let errorMessage = 'An error occurred while processing your request';
+    let errorMessage = ' error while processing request';
     if (error.error instanceof ErrorEvent) {
-      // Client-side error
-      errorMessage = `Error: ${error.error.message}`;
+      
+      let errorMessage = 'Error: ' + error.error.message;
+
+   
     } else if (error.status === 200 && error.error && error.error.message) {
-      // Server returned a success response but not in valid JSON format
+     
       errorMessage = error.error.message;
     } else {
-      // Server-side error
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+   
+      
+      let errorMessage = 'Error Code: ' + error.status + '\n Message: ' + error.message;
+
     }
     console.error(errorMessage);
     return throwError(errorMessage);
