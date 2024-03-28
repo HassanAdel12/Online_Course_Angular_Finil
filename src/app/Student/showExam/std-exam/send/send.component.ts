@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-send',
@@ -11,5 +11,14 @@ import { RouterLink } from '@angular/router';
   styleUrl: './send.component.css'
 })
 export class SendComponent {
+
+  Grade: any;
+  constructor(
+ 
+    private router: Router,
+    Actived: ActivatedRoute
+  ) {
+    this.Grade = Actived.snapshot.params['id'];
+  }
 
 }

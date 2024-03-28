@@ -118,7 +118,11 @@ export class StdExamComponent implements OnInit {
 
     this.StudentQuizService.AddNewStudentQuiz(StudentQuiz).subscribe({
       next: (data) => {
-        this.router.navigate(['/send']);
+        window.alert(
+          'grade : ' +
+          this.grade
+        );
+        //this.router.navigate(['/send/'+this.grade]);
       },
       error: (err) => {
         window.alert('sorry there is an error when add: ');
