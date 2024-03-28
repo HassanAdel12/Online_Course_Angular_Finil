@@ -7,33 +7,67 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CourseibrahemService } from '../../../../Service/courseibrahem.service';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Component, Input } from '@angular/core';
+import { GroupService } from '../../../../Service/group.service';
+import { InstructorService } from '../../../../Service/instructor.service';
 
 @Component({
   selector: 'app-main',
   standalone: true,
   imports: [RouterLink, HttpClientModule, CommonModule, FormsModule],
-  providers: [CourseibrahemService],
+  providers: [GroupService,InstructorService],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
 })
 export class MainComponent {
   @Input() Groupid: any;
   id = 0;
-  course: any;
+  Group : any;
+  Instructor : any
+  
 
-  constructor(
-    myActivat: ActivatedRoute,
-    private myservic: CourseibrahemService
-  ) {
-    this.id = myActivat.snapshot.params['id'];
-  }
+  constructor(private router: Router, private Actived: ActivatedRoute ,
+     private GroupService : GroupService ,  private InstructorService : InstructorService  ) {  }
+
+
+
   ngOnInit(): void {
-    this.myservic.getcoursebyid(this.id).subscribe({
-      next: (data: any) => (this.course = data),
 
-      error: (err) => console.log(err),
-    });
-  }
+
+    this.GroupService.getGroupByID(this.Groupid).subscribe({
+      next:(data)=>{
+        this.Group = data;
+      },
+      error:(err)=>{
+        this.router.navigate(['/Error',{errormessage : err.message as string}]);
+      }
+    })
+
+    var instructor_ID = this.Group.instructor_ID;
+
+    this.InstructorService.getInstructorByID(instructor_ID).subscribe({
+      next:(data)=>{
+        this.Instructor = data;
+      },
+      error:(err)=>{
+        this.router.navigate(['/Error',{errormessage : err.message as string}]);
+      }
+    })
+    
+   }
+
+  // constructor(
+  //   myActivat: ActivatedRoute,
+  //   private myservic: CourseibrahemService
+  // ) {
+  //   this.id = myActivat.snapshot.params['id'];
+  // }
+  // ngOnInit(): void {
+  //   this.myservic.getcoursebyid(this.id).subscribe({
+  //     next: (data: any) => (this.course = data),
+
+  //     error: (err) => console.log(err),
+  //   });
+  // }
 }

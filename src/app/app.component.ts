@@ -12,9 +12,9 @@ import { CourseselectedComponent } from './Student/courseselected/courseselected
 //import { ExamPageComponent } from './Student/showExam/exam-page/exam-page.component';
 //import { StdExamComponent } from './Student/showExam/std-exam/std-exam.component';
 
-import { DashBoardGradeOneComponent } from './Instructor/creategroup/dash-board-grade-one/dash-board-grade-one.component';
-import { DashBoardGradeTwoComponent } from './Instructor/creategroup/dash-board-grade-two/dash-board-grade-two.component';
-import { DashBoardGradeThreeComponent } from './Instructor/creategroup/dash-board-grade-three/dash-board-grade-three.component';
+import { DashBoardGradeOneComponent } from './Instructor/creategroup/dash-board-grade/dash-board-grade.component';
+//import { DashBoardGradeTwoComponent } from './Instructor/creategroup/dash-board-grade-two/dash-board-grade-two.component';
+//import { DashBoardGradeThreeComponent } from './Instructor/creategroup/dash-board-grade-three/dash-board-grade-three.component';
 
 import { AddGroupComponent } from './Instructor/creategroup/add-group/add-group.component';
 import { choosegradeComponent } from './Student/grades/choocegrade/chooseinstructor.component';
